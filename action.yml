@@ -12,8 +12,9 @@ inputs:
     required: false
     description: 'Path to the package.json to '
     default: './'
+
 outputs:
   changed:
-    description: 'True if the workspace changed, otherwise false.'
+    description: 'True if the package.json version changed, otherwise false.'
   using: 'node16'
   main: 'dist/index.js'
