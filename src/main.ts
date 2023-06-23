@@ -3,12 +3,11 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
-    const workspace = getInput('workspace', {required: true})
     const from = getInput('from', {required: true})
     const to = getInput('to', {required: true})
-    const workingDirectory = getInput('working-directory', {required: true})
+    const path = getInput('path', {required: true})
 
-    debug(`Inputs: ${JSON.stringify({workspace, from, to, workingDirectory})}`)
+    debug(`Inputs: ${JSON.stringify({from, to, path})}`)
 
     let output = ''
     let errors = ''
