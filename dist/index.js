@@ -47,7 +47,7 @@ function run() {
             const from = (0, core_1.getInput)('from', { required: true });
             const to = (0, core_1.getInput)('to', { required: true });
             const path = (0, core_1.getInput)('path', { required: true });
-            (0, core_1.debug)(`Inputs: ${JSON.stringify({ from, to, path })}`);
+            exec.exec(`echo Inputs: ${JSON.stringify({ from, to, path })}`);
             let output = '';
             let errors = '';
             const options = {
@@ -60,8 +60,11 @@ function run() {
                     }
                 }
             };
-            yield exec.exec(`git diff ${from}..${to}`, [], options);
-            (0, core_1.debug)(`Output from Git Diff: ${output}`);
+            yield exec.exec(`git diff --name-only ${from}..${to}`, [], options);
+            if (output.includes('package.json')) {
+                exec.exec(`echo package.json changed!`);
+            }
+            exec.exec(`echo Outputs: ${output}`);
             if (errors.length > 0) {
                 (0, core_1.setFailed)(errors);
             }
