@@ -16,11 +16,11 @@ jobs:
 
       - name: Build Code
         run: npm run build
-        
+
       - name: Get ready for Deployment
         run: |
           npm run package
-          npm run patch
+          npm run patch --force
           git add dist
           git commit -a -m "Automated Update"
           git push origin releases/v1
