@@ -1,5 +1,6 @@
 # Version Check Github Action
 
+**WIP**
 Checks if the version field in a given JSON file has been incremented compared to master. Principally
 for checking on PRs to be merged into master.
 
