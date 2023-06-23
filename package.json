@@ -12,11 +12,12 @@
     "package": "ncc build --source-map --license licenses.txt",
     "patch": "npm version patch",
     "commit": "git commit -a -m 'Automated'",
-    "checkout": "git checkout release/v1",
+    "checkout-to-release": "git checkout release/v1",
+    "checkout-to-main": "git checkout main",
     "rebase": "git rebase main",
     "push": "git push",
     "deploy": "npm run build && npm run format && npm run lint && npm run package && npm run patch --force && npm run commit && npm run postdeploy",
-    "postdeploy": "npm run checkout && npm run rebase && npm run push"
+    "postdeploy": "npm run checkout-to-release && npm run rebase && npm run push && npm run checkout checkout-to-main"
   },
   "repository": {
     "type": "git",
