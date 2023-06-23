@@ -20,9 +20,15 @@ jobs:
       - name: Build Code
         run: npm run build
 
+      - name: Identity Config
+        run: |
+          git config --global user.name 'CI Pipeline'
+          git config --global user.email 'ci-pipeline@users.noreply.github.com'
+
       - name: Get ready for Deployment
         run: |
           npm run package
+          npm run patch --force
           git add dist
           git commit -a -m "Automated Update"
           git push origin releases/v1
