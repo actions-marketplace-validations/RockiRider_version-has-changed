@@ -1,6 +1,6 @@
 {
   "name": "typescript-action",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
   "description": "TypeScript template action",
   "main": "lib/main.js",
@@ -12,8 +12,8 @@
     "package": "ncc build --source-map --license licenses.txt",
     "patch": "npm version patch",
     "commit": "git commit -a -m 'Automated' && git checkout release/v1 && git rebase main",
-    "deploy": "git push",
-    "all": "npm run build && npm run format && npm run lint && npm run package && npm run patch --force && npm run commit && npm run deploy"
+    "push": "git push",
+    "deploy": "npm run build && npm run format && npm run lint && npm run package && npm run patch --force && npm run commit && npm run push"
   },
   "repository": {
     "type": "git",
