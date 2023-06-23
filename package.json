@@ -11,8 +11,9 @@
     "lint": "eslint src/**/*.ts",
     "package": "ncc build --source-map --license licenses.txt",
     "patch": "npm version patch",
-    "all": "npm run build && npm run format && npm run lint && npm run package && npm run patch --force",
-    "postall": "git commit -a -m 'prod dependencies' && git push origin release/v1"
+    "commit": "git commit -a -m 'Automated' && git checkout release/v1 && git rebase main",
+    "deploy": "git push",
+    "all": "npm run build && npm run format && npm run lint && npm run package && npm run patch --force && npm run commit && npm run deploy"
   },
   "repository": {
     "type": "git",
