@@ -8,16 +8,22 @@ jobs:
   movetag:
     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0 
 
-    - name: Get major version num and update tag
-      run: |
-        VERSION=${GITHUB_REF#refs/tags/}
-        MAJOR=${VERSION%%.*}
-        git config --global user.name 'Automata'
-        git config --global user.email 'RockiRider@users.noreply.github.com'
-        git tag -fa ${MAJOR} -m "Update major version tag"
-        git push origin ${MAJOR} --force
+    steps:
+        - uses: actions/checkout@v2
+        - uses: haya14busa/action-update-semver@v1
+          with:
+            major_version_tag_only: true  # (optional, default is "false")
+    # - uses: actions/checkout@v3
+    #   with:
+    #     fetch-depth: 0 
+
+    # - name: Get major version num and update tag
+    #   run: |
+    #     VERSION=${GITHUB_REF#refs/tags/}
+    #     MAJOR=${VERSION%%.*}
+    #     git config --global user.name 'Automata'
+    #     git config --global user.email 'RockiRider@users.noreply.github.com'
+    #     git tag -fa ${MAJOR} -m "Update major version tag"
+    #     git push origin ${MAJOR} --force
+    
