@@ -35,6 +35,6 @@ jobs:
           npm run patch --force
           git add dist
           git commit -a -m "Automated Update"
-          git push origin releases/v1 -f
+          git push origin release/v1
 
 
