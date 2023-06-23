@@ -10,12 +10,18 @@ jobs:
   movetag:
     runs-on: ubuntu-latest
     steps:
-       - uses: Actions-R-Us/actions-tagger@latest
-         with:
-          publish_latest_tag: true
-       - name: Run latest-tag
-         uses: EndBug/latest-tag@latest
-         with:
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+            
+        - name: Update latest     
+          uses: Actions-R-Us/actions-tagger@latest
+          with:
+           publish_latest_tag: true
+
+        - name: Run latest-tag
+          uses: EndBug/latest-tag@latest
+          with:
             description: latest
             # # Force-update a branch instead of using a tag.
             # # Default: false
