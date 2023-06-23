@@ -22,7 +22,7 @@ async function run(): Promise<void> {
         }
       }
     }
-    await exec.exec(`git diff ${from}..${to}`, [], options)
+    await exec.exec(`git diff --name-only ${from}..${to}`, [], options)
 
     debug(`Output from Git Diff: ${output}`)
     if (errors.length > 0) {
