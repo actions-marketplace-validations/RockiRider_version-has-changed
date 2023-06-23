@@ -44,11 +44,10 @@ const exec = __importStar(__nccwpck_require__(514));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const workspace = (0, core_1.getInput)('workspace', { required: true });
             const from = (0, core_1.getInput)('from', { required: true });
             const to = (0, core_1.getInput)('to', { required: true });
-            const workingDirectory = (0, core_1.getInput)('working-directory', { required: true });
-            (0, core_1.debug)(`Inputs: ${JSON.stringify({ workspace, from, to, workingDirectory })}`);
+            const path = (0, core_1.getInput)('path', { required: true });
+            (0, core_1.debug)(`Inputs: ${JSON.stringify({ from, to, path })}`);
             let output = '';
             let errors = '';
             const options = {
