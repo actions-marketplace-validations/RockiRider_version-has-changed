@@ -1,4 +1,4 @@
-import {getInput, debug, setFailed, setOutput} from '@actions/core'
+import {getInput, debug, setFailed} from '@actions/core'
 import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
