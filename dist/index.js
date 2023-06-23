@@ -58,8 +58,7 @@ function run() {
                     stderr: (data) => {
                         errors += data.toString();
                     }
-                },
-                cwd: './lib'
+                }
             };
             yield exec.exec(`git diff ${from}..${to}`, [], options);
             (0, core_1.debug)(`Output from Git Diff: ${output}`);

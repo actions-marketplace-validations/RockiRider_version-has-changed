@@ -28,6 +28,8 @@ jobs:
         run: |
           git config --global user.name 'CI Pipeline'
           git config --global user.email 'ci-pipeline@users.noreply.github.com'
+          git switch release/v1
+          git switch main
 
       - name: Get ready for Deployment
         run: |
@@ -35,6 +37,6 @@ jobs:
           npm run patch --force
           git add dist
           git commit -a -m "Automated Update"
-          git push origin release/v1
+          git checkout release/v1
 
 
