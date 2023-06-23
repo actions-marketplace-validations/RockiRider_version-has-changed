@@ -8,7 +8,11 @@ jobs:
   build: # make sure build/ci work properly
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Necessary so we have commit history to compare to
+
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -31,6 +35,6 @@ jobs:
           npm run patch --force
           git add dist
           git commit -a -m "Automated Update"
-          git push origin releases/v1
+          git push origin releases/v1 -f
 
 
