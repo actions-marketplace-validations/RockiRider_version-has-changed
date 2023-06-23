@@ -23,7 +23,6 @@ jobs:
       - name: Get ready for Deployment
         run: |
           npm run package
-          npm run patch --force
           git add dist
           git commit -a -m "Automated Update"
           git push origin releases/v1
