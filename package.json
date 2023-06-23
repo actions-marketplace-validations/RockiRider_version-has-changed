@@ -15,8 +15,8 @@
     "checkout-to-release": "git checkout release/v1",
     "checkout-to-main": "git checkout main",
     "rebase": "git rebase main",
-    "push": "git push",
-    "deploy": "npm run build && npm run format && npm run lint && npm run package && npm run patch --force && npm run commit && npm run postdeploy",
+    "push": "git push ",
+    "deploy": "npm run build && npm run format && npm run lint && npm run package && npm run patch --force && npm run commit && npm run push",
     "postdeploy": "npm run checkout-to-release && npm run rebase && npm run push && npm run checkout checkout-to-main"
   },
   "repository": {
