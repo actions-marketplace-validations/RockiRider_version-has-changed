@@ -10,10 +10,9 @@ jobs:
 
 
     steps:
-        - uses: actions/checkout@v2
-        - uses: haya14busa/action-update-semver@v1
-          with:
-            major_version_tag_only: true  # (optional, default is "false")
+       - uses: Actions-R-Us/actions-tagger@latest
+         with:
+          publish_latest_tag: true
     # - uses: actions/checkout@v3
     #   with:
     #     fetch-depth: 0 
