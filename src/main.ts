@@ -12,7 +12,7 @@ async function run(): Promise<void> {
     let output = ''
     let errors = ''
 
-    const options = {
+    const options: exec.ExecOptions = {
       listeners: {
         stdout: (data: Buffer) => {
           output += data.toString()
@@ -20,8 +20,7 @@ async function run(): Promise<void> {
         stderr: (data: Buffer) => {
           errors += data.toString()
         }
-      },
-      cwd: './lib'
+      }
     }
     await exec.exec(`git diff ${from}..${to}`, [], options)
 
