@@ -1,4 +1,4 @@
-import {getInput, debug, setFailed} from '@actions/core'
+import {getInput, setFailed} from '@actions/core'
 import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
@@ -7,7 +7,7 @@ async function run(): Promise<void> {
     const to = getInput('to', {required: true})
     const path = getInput('path', {required: true})
 
-    debug(`Inputs: ${JSON.stringify({from, to, path})}`)
+    exec.exec(`echo Inputs: ${JSON.stringify({from, to, path})}`)
 
     let output = ''
     let errors = ''
@@ -24,7 +24,10 @@ async function run(): Promise<void> {
     }
     await exec.exec(`git diff --name-only ${from}..${to}`, [], options)
 
-    debug(`Output from Git Diff: ${output}`)
+    if (output.includes('package.json')) {
+      exec.exec(`echo package.json changed!`)
+    }
+    exec.exec(`echo Outputs: ${output}`)
     if (errors.length > 0) {
       setFailed(errors)
     }
